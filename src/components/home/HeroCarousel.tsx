@@ -6,8 +6,8 @@ export function HeroCarousel() {
   return (
     <div className="absolute inset-0 z-0 overflow-hidden bg-stone-950" aria-hidden="true">
       <Image
-        src="/images/jerez-frontera.jpeg"
-        alt="Vista de Jerez de la Frontera"
+        src="/images/fernan-nunez.jpg"
+        alt="Vista de Fernán Núñez, Córdoba"
         fill
         priority
         className="object-cover object-center"

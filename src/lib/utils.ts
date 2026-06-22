@@ -5,8 +5,12 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
+export function hasPrice(price: number): boolean {
+  return price > 0
+}
+
 export function formatPrice(price: number, operation?: string): string {
-  if (!price || price <= 0) return 'Consultar precio'
+  if (!hasPrice(price)) return ''
   const base = new Intl.NumberFormat('es-ES', {
     style: 'currency',
     currency: 'EUR',

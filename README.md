@@ -1,4 +1,4 @@
-# Arena Inmobiliaria — Web
+# Sales Inmobiliaria — Web
 
 Next.js + TypeScript + Tailwind. Catálogo de propiedades en archivo local (`src/data/properties.ts`).
 

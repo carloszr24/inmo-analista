@@ -23,9 +23,9 @@ const logo = Montserrat({
 })
 
 export const metadata: Metadata = {
-  title: 'Arena Inmobiliaria | Agencia inmobiliaria en Jerez de la Frontera',
-  description: 'Compra, venta y alquiler de propiedades en Jerez de la Frontera y la provincia de Cádiz con asesoramiento cercano y profesional.',
-  keywords: 'arena inmobiliaria, inmobiliaria jerez, agencia inmobiliaria cadiz, compra vivienda, venta vivienda, alquiler',
+  title: 'Sales Inmobiliaria | Agencia inmobiliaria en Fernán Núñez, Córdoba',
+  description: 'Compra, venta y alquiler de propiedades en Fernán Núñez y la provincia de Córdoba con asesoramiento cercano y profesional.',
+  keywords: 'sales inmobiliaria, inmobiliaria fernan nunez, agencia inmobiliaria cordoba, compra vivienda, venta vivienda, alquiler',
 }
 
 export default function RootLayout({

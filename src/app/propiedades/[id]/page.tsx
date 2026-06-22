@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { CONTACT, phoneHref, whatsappHref } from '@/lib/contact'
 import { DEMO_PROPERTIES } from '@/data/properties'
 import { getPropertyById } from '@/lib/properties-store'
-import { formatPrice, OPERATION_LABELS, parseImages, STATUS_LABELS, TYPE_LABELS } from '@/lib/utils'
+import { formatPrice, hasPrice, OPERATION_LABELS, parseImages, STATUS_LABELS, TYPE_LABELS } from '@/lib/utils'
 import { cn } from '@/lib/utils'
 import { PropertyImageViewer } from '@/components/properties/PropertyImageViewer'
 import type { Property } from '@/types'
@@ -104,6 +104,8 @@ function PropertySpecs({
 }
 
 function PropertyPrice({ property }: { property: Property }) {
+  if (!hasPrice(property.price)) return null
+
   return (
     <div className="bg-stone-900 p-6">
       <p className="text-xs text-stone-400 tracking-widest uppercase mb-1">Precio</p>

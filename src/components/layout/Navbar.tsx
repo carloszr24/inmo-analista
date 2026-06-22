@@ -87,7 +87,7 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0">
             <Image
-              src="/images/logo-arena-inmobiliaria.png"
+              src="/images/sales-inmobiliaria-logo.png"
               alt={`${AGENT.name} logo`}
               width={300}
               height={80}

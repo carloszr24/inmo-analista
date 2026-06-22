@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Property } from '@/types'
-import { formatPrice, OPERATION_LABELS, parseImages, STATUS_LABELS, TYPE_LABELS } from '@/lib/utils'
+import { formatPrice, hasPrice, OPERATION_LABELS, parseImages, STATUS_LABELS, TYPE_LABELS } from '@/lib/utils'
 import { cn } from '@/lib/utils'
 
 interface PropertyCardProps {
@@ -19,6 +19,8 @@ export function PropertyCard({ property, variant = 'default' }: PropertyCardProp
   const images = parseImages(property.images)
   const firstImage = images[0] || 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800'
   const isFeaturedMinimal = variant === 'featuredMinimal'
+  const showPrice = hasPrice(property.price)
+  const priceLabel = formatPrice(property.price, property.operation)
 
   return (
     <Link href={`/propiedades/${property.id}`} className="group block">
@@ -55,10 +57,10 @@ export function PropertyCard({ property, variant = 'default' }: PropertyCardProp
           )}
         </div>
 
-        {!isFeaturedMinimal && (
+        {!isFeaturedMinimal && showPrice && (
           <div className="md:hidden border-b border-stone-100 px-4 py-3">
             <span className="font-display text-2xl font-medium text-stone-900">
-              {formatPrice(property.price, property.operation)}
+              {priceLabel}
             </span>
           </div>
         )}
@@ -100,21 +102,27 @@ export function PropertyCard({ property, variant = 'default' }: PropertyCardProp
           )}
 
           {/* Price */}
+          {(showPrice || !isFeaturedMinimal) && (
           <div
             className={cn(
               'flex items-center justify-between',
               isFeaturedMinimal ? 'pt-0' : 'hidden md:flex'
             )}
           >
-            <span className="font-display text-2xl font-medium text-stone-900">
-              {formatPrice(property.price, property.operation)}
-            </span>
+            {showPrice ? (
+              <span className="font-display text-2xl font-medium text-stone-900">
+                {priceLabel}
+              </span>
+            ) : (
+              <span />
+            )}
             {!isFeaturedMinimal && (
               <span className="text-xs uppercase tracking-[0.18em] text-gold group-hover:translate-x-1 transition-transform inline-block">
                 Ver →
               </span>
             )}
           </div>
+          )}
         </div>
       </article>
     </Link>

@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { Property } from '@/types'
 import { MAX_FEATURED_ON_HOME } from '@/lib/property-db'
-import { formatPrice, OPERATION_LABELS, PROPERTY_OPERATIONS, PROPERTY_STATUSES, PROPERTY_TYPES, STATUS_LABELS, TYPE_LABELS } from '@/lib/utils'
+import { formatPrice, hasPrice, OPERATION_LABELS, PROPERTY_OPERATIONS, PROPERTY_STATUSES, PROPERTY_TYPES, STATUS_LABELS, TYPE_LABELS } from '@/lib/utils'
 import { cn } from '@/lib/utils'
 
 type ImageItem =
@@ -758,7 +758,7 @@ export default function AdminPage() {
                       </span>
                     </td>
                     <td className="px-4 py-3 text-stone-600 whitespace-nowrap">
-                      {formatPrice(p.price, p.operation)}
+                      {hasPrice(p.price) ? formatPrice(p.price, p.operation) : '—'}
                     </td>
                     <td className="px-4 py-3 text-stone-500">
                       {OPERATION_LABELS[p.operation || 'venta'] || p.operation || 'Venta'}

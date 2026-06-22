@@ -3,15 +3,16 @@
 @tailwind utilities;
 
 :root {
-  --brand-cyan: #96d7db;
-  --brand-cyan-light: #b8e8eb;
-  --brand-cyan-mid: #6bbec3;
-  --brand-cyan-dark: #4a9ba0;
+  --brand-cyan: #d02060;
+  --brand-cyan-light: #f4a5be;
+  --brand-cyan-mid: #c81858;
+  --brand-cyan-dark: #a81548;
+  --brand-charcoal: #303030;
   --brand-sand: #f9e9b8;
   --brand-white: #ffffff;
-  --gold: var(--brand-cyan-dark);
-  --gold-light: var(--brand-cyan);
-  --gold-dark: #3d8489;
+  --gold: var(--brand-cyan);
+  --gold-light: var(--brand-cyan-light);
+  --gold-dark: var(--brand-cyan-dark);
 }
 
 @layer base {

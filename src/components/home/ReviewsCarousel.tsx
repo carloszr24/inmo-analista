@@ -1,22 +1,26 @@
 'use client'
 
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { REVIEWS } from '@/data/reviews'
+import { GOOGLE_RATING, REVIEWS } from '@/data/reviews'
 
-function StarRow() {
+function StarRow({ rating = GOOGLE_RATING }: { rating?: number }) {
   return (
-    <div className="flex items-center gap-1.5" aria-label="Valoracion excelente">
-      {Array.from({ length: 5 }).map((_, idx) => (
-        <svg
-          key={idx}
-          viewBox="0 0 24 24"
-          className={`h-5 w-5 ${idx === 4 ? 'text-gold/80' : 'text-gold'}`}
-          fill="currentColor"
-          aria-hidden="true"
-        >
-          <path d="M12 2.5l2.93 5.94 6.56.95-4.74 4.62 1.12 6.53L12 17.46 6.13 20.54l1.12-6.53L2.5 9.39l6.56-.95L12 2.5z" />
-        </svg>
-      ))}
+    <div className="flex items-center gap-1.5" aria-label={`Valoración ${rating} de 5 en Google`}>
+      {Array.from({ length: 5 }).map((_, idx) => {
+        const fill = Math.min(1, Math.max(0, rating - idx))
+        return (
+          <span key={idx} className="relative inline-block h-5 w-5" aria-hidden="true">
+            <svg viewBox="0 0 24 24" className="h-5 w-5 text-stone-200" fill="currentColor">
+              <path d="M12 2.5l2.93 5.94 6.56.95-4.74 4.62 1.12 6.53L12 17.46 6.13 20.54l1.12-6.53L2.5 9.39l6.56-.95L12 2.5z" />
+            </svg>
+            <span className="absolute inset-0 overflow-hidden" style={{ width: `${fill * 100}%` }}>
+              <svg viewBox="0 0 24 24" className="h-5 w-5 text-gold" fill="currentColor">
+                <path d="M12 2.5l2.93 5.94 6.56.95-4.74 4.62 1.12 6.53L12 17.46 6.13 20.54l1.12-6.53L2.5 9.39l6.56-.95L12 2.5z" />
+              </svg>
+            </span>
+          </span>
+        )
+      })}
     </div>
   )
 }
@@ -141,7 +145,7 @@ export function ReviewsCarousel() {
             {[
               { value: '+100', label: 'propiedades vendidas' },
               { value: '< 60 días', label: 'tiempo medio de cierre' },
-              { value: '5,0 / 5', label: 'estrellas en Google' },
+              { value: '4,6 / 5', label: 'en Google' },
             ].map((stat, idx) => (
               <div
                 key={stat.label}

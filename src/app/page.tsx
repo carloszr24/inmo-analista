@@ -3,6 +3,7 @@ import { getFeaturedPropertiesForHome } from '@/lib/properties-store'
 import { ClientFirstSection } from '@/components/home/ClientFirstSection'
 import { FeaturedPropertiesGrid } from '@/components/home/FeaturedPropertiesGrid'
 import { HeroCarousel } from '@/components/home/HeroCarousel'
+import { HeroScrollHint } from '@/components/home/HeroScrollHint'
 import { ValoracionGratuitaModal } from '@/components/home/ValoracionGratuitaModal'
 
 function HomeIcon() {
@@ -71,6 +72,7 @@ export default async function HomePage() {
               triggerClassName="inline-flex w-full sm:flex-1 sm:min-w-0 min-h-[3rem] md:min-h-[3.25rem] items-center justify-center px-8 py-3.5 md:py-4 text-sm md:text-base tracking-wide font-medium border-2 border-brand-cyan-light text-white box-border hover:bg-brand-cyan-light hover:text-stone-900 transition-colors duration-200"
             />
           </div>
+          <HeroScrollHint />
         </div>
       </section>
 

@@ -43,7 +43,7 @@ export function ClientFirstSection() {
   }, [])
 
   return (
-    <section ref={rootRef} className="bg-stone-50 py-20 md:py-24 px-6 md:px-10">
+    <section id="contenido" ref={rootRef} className="bg-stone-50 py-20 md:py-24 px-6 md:px-10 scroll-mt-20">
       <div className="max-w-7xl mx-auto">
         <div
           className={`mb-12 md:mb-14 transition-all duration-700 ${

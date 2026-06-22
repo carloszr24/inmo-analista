@@ -66,8 +66,8 @@ const services = [
   },
   {
     icon: ChartIcon,
-    title: 'Alquiler y venta en playa',
-    desc: 'Servicio especializado en propiedades en costa para alquiler vacacional, residencial y compraventa.',
+    title: 'Alquiler turístico',
+    desc: 'Gestión de viviendas con licencia turística en Córdoba y provincia, con asesoramiento en rentabilidad, normativa y compraventa.',
   },
   {
     icon: BriefcaseIcon,
